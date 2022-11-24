@@ -3,10 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:local="clr-namespace:WpfApp1" 
         mc:Ignorable="d"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        Title="MainWindow" Height="600" Width="1040"  WindowStartupLocation="CenterScreen" MinHeight="600" MinWidth="1040" >
+        Title="MainWindow" Height="600" Width="1040"  WindowStartupLocation="CenterScreen" MinHeight="600" MinWidth="1040">
+
+    <Window.Resources>
+        <local:DoubleConverter x:Key="doubleConverter" />
+    </Window.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -121,19 +125,19 @@
                 </Grid.ColumnDefinitions>
 
                 <ProgressBar Background="Transparent" Grid.Column="0" HorizontalAlignment="Center" Width="50" Height="Auto" Margin="0,10,0,17" Value="{Binding Distance}" Orientation="Vertical" Maximum="20"/>
-                <TextBlock Text="{Binding Distance}" HorizontalAlignment="Center"  Grid.Column="0" VerticalAlignment="Center" FontFamily="Tahoma" FontSize="24" />
+                <TextBlock Text="{Binding Distance, Converter={StaticResource doubleConverter}}" HorizontalAlignment="Center"  Grid.Column="0" VerticalAlignment="Center" FontFamily="Tahoma" FontSize="24" />
                 <TextBlock Text="Distance" HorizontalAlignment="Center"  Grid.Column="0" VerticalAlignment="Bottom" FontFamily="Tahoma" FontSize="14" />
 
                 <ProgressBar Background="Transparent" Grid.Column="1" HorizontalAlignment="Center" Width="50" Height="Auto" Margin="0,10,0,17" Value="{Binding Angle}" Orientation="Vertical" Maximum="12"/>
-                <TextBlock Text="{Binding Angle}" HorizontalAlignment="Center"  Grid.Column="1" VerticalAlignment="Center" FontFamily="Tahoma" FontSize="24" />
+                <TextBlock Text="{Binding Angle, Converter={StaticResource doubleConverter}}" HorizontalAlignment="Center"  Grid.Column="1" VerticalAlignment="Center" FontFamily="Tahoma" FontSize="24" />
                 <TextBlock Text="Angle" HorizontalAlignment="Center" Grid.Column="1" VerticalAlignment="Bottom" FontFamily="Tahoma" FontSize="14" />
 
                 <ProgressBar Background="Transparent" Grid.Column="2" HorizontalAlignment="Center" Width="50" Height="Auto" Margin="0,10,0,17" Value="{Binding Width}" Orientation="Vertical" Maximum="20"/>
-                <TextBlock Text="{Binding Width}" HorizontalAlignment="Center" Grid.Column="2"  VerticalAlignment="Center" FontFamily="Tahoma" FontSize="24" />
+                <TextBlock Text="{Binding Width, Converter={StaticResource doubleConverter}}" HorizontalAlignment="Center" Grid.Column="2"  VerticalAlignment="Center" FontFamily="Tahoma" FontSize="24" />
                 <TextBlock Text="Width" HorizontalAlignment="Center" Grid.Column="2"  VerticalAlignment="Bottom" FontFamily="Tahoma" FontSize="14" />
 
-                <ProgressBar Background="Transparent" Height="Auto" Grid.Column="3" HorizontalAlignment="Center" Width="50" Margin="0,10,0,17" Value="{Binding Hegth}" Orientation="Vertical" Maximum="12" ValueChanged="ProgressBar_ValueChanged"/>
-                <TextBlock Text="{Binding Hegth}" HorizontalAlignment="Center" Grid.Column="3"  VerticalAlignment="Center" FontFamily="Tahoma" FontSize="24" />
+                <ProgressBar Background="Transparent" Height="Auto" Grid.Column="3" HorizontalAlignment="Center" Width="50" Margin="0,10,0,17" Value="{Binding Hegth}" Orientation="Vertical" Maximum="12"/>
+                <TextBlock Text="{Binding Hegth, Converter={StaticResource doubleConverter}}" HorizontalAlignment="Center" Grid.Column="3"  VerticalAlignment="Center" FontFamily="Tahoma" FontSize="24" />
                 <TextBlock Text="Heght" HorizontalAlignment="Center"  Grid.Column="3"  VerticalAlignment="Bottom" FontFamily="Tahoma" FontSize="14" />
 
             </Grid>
